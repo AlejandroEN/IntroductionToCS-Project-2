@@ -5,7 +5,7 @@ from packages.image import *
 digits: Bunch = datasets.load_digits()
 
 # Punto A
-average_digits: ndarray = get_average_images(digits)
+average_digits = get_average_images(digits)
 print("Matriz con las imágenes promedio de cada dígito creado.\n")
 
 # Punto B
@@ -24,3 +24,10 @@ closest_digits: ndarray = get_closest_digits(new_digit_image, digits)
 print(f"Los 3 dígitos más parecidos al dígito ingresado son: {closest_digits[0]}, {closest_digits[1]} y {closest_digits[2]}\n")
 
 # Punto F
+similar_target: tuple[int, int] = get_similar_target(closest_digits, 3)
+print(f"Soy la inteligencia artificial y he detectado que el dígito ingresado corresponde al número {similar_target[0]}\nAdemás, utilicé los {similar_target[1]} dígitos más parecidos para llegar a esta conclusión.\n")
+
+# Punto G
+closest_digits_average: ndarray = get_closest_digits(new_digit_image, get_average_images(digits))
+closest_digit = closest_digits_average[0]
+print(f"Soy la inteligencia artificial versión 2 y he detectado que el dígito ingresado corresponde al número {closest_digit}. Donde {closest_digit} es un número entre 0 y 9")
