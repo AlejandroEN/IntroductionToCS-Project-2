@@ -8,7 +8,8 @@ def format_image(path) -> ndarray:
     Formatea una imagen para que sea reconocida por el algoritmo de clasificación.
     """
     # Verifica si el path está entre comillas
-    if path[0] == '"': path = path[1:-1]
+    if path[0] == '"':
+        path = path[1:-1]
 
     # Lee la imagen y la convierte a escala de grises
     img_array = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
@@ -26,4 +27,5 @@ def format_image(path) -> ndarray:
         for j in range(8):
             new_array[i][j] = new_array[i][j] * 16 / 255
 
+    # Convierte el nuevo array en un array NumPy con tipo de dato float32
     return np.asarray(new_array, dtype=np.float32)
