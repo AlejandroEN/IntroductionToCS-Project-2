@@ -58,7 +58,7 @@ def get_similar_target(closest_digits: ndarray, n_top: int) -> tuple[int, int]:
 
     # Si el valor más recurrente aparece al menos la mitad de las veces,
     # se devuelve el valor y el número de elementos considerados.
-    while most_recurrent_value_count <= len(closest_digits[:n_top])/2:
+    while most_recurrent_value_count <= len(closest_digits[:n_top]) / 2:
         return get_similar_target(closest_digits, n_top + 1)
     else:
         return unique_values[0][most_recurrent_value_index], n_top
